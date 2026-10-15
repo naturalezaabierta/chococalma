@@ -10,6 +10,49 @@
 @media(max-width:850px){.navlinks a:not(.navcta){display:none}.hero{padding:115px 0 75px;min-height:auto}.heroGrid{grid-template-columns:1fr;gap:0}.heroCopy{padding:10px 0 0}.heroCopy h1{max-width:650px}.heroVisual{min-height:0;margin-top:8px}.heroProduct{width:min(100%,500px)}.floatingTag{right:2%;bottom:5%}.introGrid,.storyGrid,.videoGrid{grid-template-columns:1fr;gap:35px}.editorialPhoto{max-width:540px;margin:auto}.cards{grid-template-columns:repeat(2,1fr)}.referral{grid-template-columns:1fr}.section{padding:75px 0}.scrollCue{display:none}}
 @media(max-width:520px){.wrap{width:min(100% - 30px,1160px)}.nav{padding:14px 0}.navinner{gap:10px;align-items:center}.brand{font-size:1.05rem;white-space:nowrap}.brand small{font-size:.52rem;letter-spacing:.16em;white-space:normal}.navlinks{gap:0}.navlinks .navcta{font-size:.76rem;padding:10px 12px;gap:6px;white-space:nowrap}.navlinks .navcta .navLabel{display:none}.navlinks .navcta .waIcon{width:23px;height:23px}.hero{padding-top:112px}.hero h1{font-size:clamp(2.75rem,12.4vw,4.2rem);line-height:1.01}.heroPromise{font-size:1.45rem;min-height:3.1em;margin:.55rem 0 .9rem}.painPoints{gap:6px}.painPoints span{font-size:.59rem;padding:7px 8px}.heroVisual{margin-inline:-8px}.floatingTag{font-size:.85rem;padding:10px 12px;bottom:3%}.section{padding:62px 0}.moments,.shippingGrid{grid-template-columns:1fr}.moment{min-height:230px;padding:25px}.cards{gap:10px}.situation{padding:18px 15px;min-height:205px}.situation h3{font-size:1.1rem}.situation p{font-size:.84rem}.quotePanel{padding:24px}.levels{gap:8px}.level{padding:13px}.footerInner{align-items:flex-start;flex-direction:column}.floatingWA{right:12px;bottom:12px;padding:12px;border-radius:50%;width:52px;height:52px;justify-content:center}.floatingWA .waLabel{display:none}.floatingWA .waIcon{width:27px;height:27px}.price strong{font-size:1.9rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.heroPromise.is-changing{opacity:1;transform:none}}
+
+/* ===== Ajustes: encabezado, tarjetas y testimonios ===== */
+.painPoints span{transition:background .4s,border-color .4s,color .4s,transform .4s}
+.painPoints span.active{background:#b79b6330;border-color:#dfc58d;color:#fff;transform:translateY(-2px)}
+.situation{cursor:pointer}
+.situation .icon{transition:transform .3s,color .3s}
+.situation h3{color:var(--deep)}
+.situation p{color:#4a5148}
+.situation.active{border-color:var(--gold);background:#fbf3df;transform:translateY(-4px);box-shadow:0 18px 35px #b79b6340}
+.situation.active .icon{color:var(--gold);transform:scale(1.2)}
+.tVideos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+.tCard{background:#fffdf8;border:1px solid #e6dece;border-radius:22px;padding:12px;box-shadow:0 14px 35px #302b1b14}
+.tVideo{aspect-ratio:9/16;background:#0d1f10;border-radius:16px;overflow:hidden}
+.tVideo iframe{display:block;width:100%;height:100%;border:0}
+.tCap{text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--deep);padding:12px 6px 4px}
+.tHint{display:none;text-align:center;font-size:.85rem;color:#687166;margin:6px 0 0}
+.tQuotes{max-width:720px;margin:52px auto 0;text-align:center}
+.tQuotesTitle{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--deep);margin:0 0 18px}
+.tTrack{display:grid;background:#fffdf8;border:1px solid #e6dece;border-radius:25px;padding:30px 26px}
+.tQuote{grid-area:1/1;margin:0;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s}
+.tQuote.on{opacity:1;visibility:visible}
+.tQuote blockquote{margin:0;font-family:var(--serif);font-size:1.3rem;line-height:1.4;color:var(--ink)}
+.tQuote figcaption{margin-top:16px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.tDots{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.tDots button{width:12px;height:12px;padding:0;border-radius:50%;border:0;background:#c9bfa8;cursor:pointer;transition:background .3s,transform .3s}
+.tDots button.on{background:var(--gold);transform:scale(1.25)}
+.tNote{text-align:center;margin-top:30px}
+@media(max-width:760px){
+.tVideos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 15px 14px;margin:0 -15px;-webkit-overflow-scrolling:touch}
+.tCard{flex:0 0 76%;max-width:320px;scroll-snap-align:center}
+.tHint{display:block}
+}
+@media(max-width:520px){
+.painPoints{gap:10px;margin:22px 0 14px}
+.painPoints span{font-size:.74rem;padding:10px 14px}
+.heroCopy .intro{display:none}
+.cards{grid-template-columns:1fr}
+.situation{padding:20px 18px;min-height:auto}
+.situation h3{font-size:1.3rem}
+.situation p{font-size:1rem}
+.tQuote blockquote{font-size:1.15rem}
+.tTrack{padding:24px 18px}
+}
 </style></head>
 <body>
 <div class="topnote" id="refNote">Te invitó alguien de la comunidad Naturaleza Abierta 🌿</div>
@@ -18,8 +61,14 @@
 <section class="hero" id="inicio"><div class="wrap heroGrid"><div class="heroCopy"><div class="eyebrow">Un ritual para volver a ti</div><h1 class="heroHeadline">¿Estrés, <em>ansiedad</em> o tensión emocional?</h1><p class="heroPromise" id="rotatingMessage" aria-live="polite">¿Sientes la mente acelerada incluso cuando termina el día?</p><p class="intro">Descubre Choco Calma: una crema de cacao untable para acompañar tus momentos de pausa y bienestar.</p><div class="painPoints" aria-label="Momentos en los que buscas una pausa"><span>ESTRÉS DIARIO</span><span>MENTE ACELERADA</span><span>DIFICULTAD PARA DESCONECTAR</span></div><div class="price"><strong>$18 USD</strong><span>· 1 bote de 220 g</span></div><div class="bsprice" id="bsPrice">Monto en bolívares a tasa BCV del día: te lo confirma Valentina al momento de tu pedido.</div><div style="margin-top:24px"><a class="btn wa-link" href="#comprar">Quiero mi Choco Calma <span>↗</span></a></div><p class="smallnote">Compra acompañada por Valentina, nuestra asesora digital.</p></div><div class="heroVisual" id="heroVisual"><div class="heroProduct" id="heroProduct"><img src="imagenes/choco-calma-hero.png" alt="Pote de Choco Calma, crema de cacao untable de 220 gramos" fetchpriority="high"></div><div class="floatingTag"><span>Tu momento de bienestar</span>Respira, siente y sonríe</div></div></div><div class="scrollCue">Descubre el ritual · ↓</div></section>
 <section class="section" id="producto"><div class="wrap introGrid"><div class="editorialPhoto reveal"><img src="https://www.naturalezaabierta.com/wp-content/uploads/2026/08/4920352665477255084.jpg" alt="Presentación actual del producto Choco Calma" loading="lazy"></div><div class="reveal"><div class="eyebrow">Conoce Choco Calma</div><h2>Una crema de cacao. Un pequeño ritual para ti.</h2><p>Choco Calma es el producto insignia de Naturaleza Abierta, elaborado con cacao puro y una formulación inspirada en conocimientos ancestrales, para acompañar momentos de estrés, ansiedad o tensión emocional.</p><div class="checkline"><i>✦</i><div><strong>Crema de cacao untable</strong><br><span class="muted">Se consume con una cucharita. No es polvo, no es té y no se disuelve en agua.</span></div></div><div class="checkline"><i>✦</i><div><strong>Presentación de 220 gramos</strong><br><span class="muted">Un bote para incorporar a tu rutina personal.</span></div></div><div class="checkline"><i>✦</i><div><strong>Inspiración ancestral</strong><br><span class="muted">Una propuesta que pone el cacao puro en el centro de tu momento de pausa.</span></div></div><div class="notice">La lista exacta de ingredientes y la información nutricional están pendientes de confirmación. Consúltalas con Valentina antes de comprar.</div></div></div></section>
 <section class="section dark" id="como-tomar"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Tu ritual cotidiano</div><h2>Dos cucharaditas. Dos momentos para ti.</h2><p>La sugerencia de consumo es de dos cucharaditas de postre pequeñas al día, siguiendo estos dos momentos.</p></div><div class="moments"><article class="moment reveal"><div class="number">01</div><h3>Cuando necesites hacer una pausa</h3><p>Una cucharadita en el momento en que sientas tensión: puede ser por la mañana, al mediodía o por la tarde, según cómo te sientas.</p><div class="spoon" aria-hidden="true">🥄</div></article><article class="moment reveal"><div class="number">02</div><h3>Antes de dormir</h3><p>La segunda cucharadita se sugiere antes de acostarte, alrededor de las 8:30 o 9:00 p. m. Después puedes tomar agua.</p><div class="spoon" aria-hidden="true">🌙</div></article></div><p class="smallnote" style="text-align:center;margin-top:24px">Si tienes dudas sobre el consumo o posibles contraindicaciones, consulta con Valentina y con un profesional de salud.</p></div></section>
-<section class="section"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Hecho para la vida real</div><h2>¿Te gustaría regalarte un momento de calma?</h2><p>Choco Calma está pensado para acompañar rutinas exigentes y momentos en los que quieres bajar el ritmo.</p></div><div class="cards"><article class="situation reveal"><div class="icon">☼</div><h3>Días intensos</h3><p>Cuando el ritmo diario parece no dar tregua y necesitas hacer una pausa.</p></article><article class="situation reveal"><div class="icon">✧</div><h3>Tensión del trabajo</h3><p>Para acompañar esos momentos en los que las responsabilidades se acumulan.</p></article><article class="situation reveal"><div class="icon">❋</div><h3>Desconectar un rato</h3><p>Cuando quieres apartarte del ruido y volver a conectar contigo.</p></article><article class="situation reveal"><div class="icon">☾</div><h3>Prepararte para dormir</h3><p>Para convertir el final del día en un ritual personal más consciente.</p></article></div></div></section>
-<section class="section" style="background:#eee7d8"><div class="wrap storyGrid"><div class="reveal"><div class="eyebrow">Lo que nos cuentan</div><h2>Pequeños momentos que se sienten propios.</h2><p>Muchas personas nos comentan que Choco Calma les ayuda a recuperar la calma durante el día, aliviar la tensión de la jornada y favorecer un descanso más profundo por las noches.</p><p class="muted">Cada experiencia es personal y los resultados pueden variar. No se trata de una promesa médica.</p></div><div class="quotePanel reveal"><div class="quoteMark">“</div><p>Este espacio está preparado para compartir experiencias auténticas de personas que hayan probado Choco Calma.</p><div class="pending">[PENDIENTE: incorporar testimonios reales y autorizados de clientes. No se han añadido opiniones ficticias.]</div></div></div></section>
+<section class="section"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Hecho para la vida real</div><h2>¿Te gustaría regalarte un momento de calma?</h2><p>Choco Calma está pensado para acompañar rutinas exigentes y momentos en los que quieres bajar el ritmo.</p></div><div class="cards"><article class="situation reveal"><div class="icon">☼</div><h3>Estrés del día a día</h3><p>Cuando el ritmo no da tregua y necesitas una pausa.</p></article><article class="situation reveal"><div class="icon">✧</div><h3>Ansiedad y mente acelerada</h3><p>Pensamientos que no paran, incluso cuando el día ya terminó.</p></article><article class="situation reveal"><div class="icon">❋</div><h3>Tensión emocional</h3><p>Cuando cuesta soltar y volver a conectar contigo.</p></article><article class="situation reveal"><div class="icon">☾</div><h3>Dificultad para dormir</h3><p>Para convertir el final del día en un ritual de descanso.</p></article></div></div></section>
+<section class="section" id="testimonios" style="background:#eee7d8"><div class="wrap">
+<div class="sectionHead reveal"><div class="eyebrow">Lo que nos cuentan</div><h2>Experiencias de personas de Naturaleza Abierta</h2><p>Personas reales hablando de lo que vivieron en nuestros retiros y terapias.</p></div>
+<div class="tVideos" id="tVideos"></div>
+<p class="tHint">Desliza para ver más →</p>
+<div class="tQuotes" id="tQuotes" hidden><h3 class="tQuotesTitle">Quienes han tomado Choco Calma</h3><div class="tTrack" id="tTrack" aria-live="polite"></div><div class="tDots" id="tDots"></div></div>
+<p class="muted tNote">Cada experiencia es personal y los resultados pueden variar. No se trata de una promesa médica.</p>
+</div></section>
 <section class="section videoSection" id="video"><div class="wrap videoGrid"><div class="reveal"><div class="eyebrow">Míralo de cerca</div><h2>Conoce tu próximo ritual.</h2><p>Un vistazo en formato vertical a Choco Calma. Toca el video para cargarlo.</p><p class="muted">Así mantenemos la página ligera mientras no estás reproduciendo el video.</p></div><div class="videoFrame reveal" id="videoFrame"><button id="loadVideo" aria-label="Reproducir video de Choco Calma"><span class="play">▶</span><strong>Ver video de Choco Calma</strong><span style="font-size:.78rem;opacity:.8">Toca para cargar</span></button></div></div></section>
 <section class="section"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Compra con tranquilidad</div><h2>Envío y pago, sin complicaciones.</h2><p>Valentina te acompaña para confirmar el monto y coordinar los detalles de tu pedido.</p></div><div class="shippingGrid"><article class="shipCard reveal"><div class="icon">⌁</div><h3>Envíos en Venezuela</h3><p>MRW, ZOOM o TEALCA. El envío se paga a destino.</p><p class="pending">[PENDIENTE: confirmar tiempo estimado de entrega.]</p></article><article class="shipCard reveal"><div class="icon">◉</div><h3>Pago Móvil</h3><p>Por ahora, el pago del producto se realiza mediante Pago Móvil. Valentina te enviará los datos correspondientes.</p></article><article class="shipCard reveal"><div class="icon">✈</div><h3>¿Estás fuera de Venezuela?</h3><p>Los envíos internacionales están sujetos a evaluación. Escríbele a Valentina para consultar si es posible coordinar el tuyo.</p></article></div><div class="sectionHead" style="margin-top:40px;margin-bottom:0"><a class="btn wa-link" href="#comprar">Consultar mi pedido por WhatsApp ↗</a></div></div></section>
 <section class="section" id="preguntas" style="background:#fffdf8"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Resolvemos tus dudas</div><h2>Preguntas frecuentes</h2></div><div class="faq reveal"><details><summary>¿Cómo se consume?</summary><p>La sugerencia indicada es de dos cucharaditas de postre pequeñas al día: una cuando sientas tensión, según el momento de tu día, y otra antes de dormir, alrededor de las 8:30 o 9:00 p. m. Después puedes tomar agua.</p></details><details><summary>¿Funciona de verdad?</summary><p>Muchas personas nos comentan que les ayuda a recuperar la calma durante el día y a favorecer un descanso más profundo. Cada experiencia es personal; no podemos garantizar resultados ni presentarlo como tratamiento médico.</p></details><details><summary>¿Es seguro consumirlo a diario?</summary><p>Para resolver dudas sobre tu situación particular, consulta con un profesional de salud y pídele a Valentina la información de ingredientes disponible. La lista exacta de ingredientes y las contraindicaciones están pendientes de confirmación.</p></details><details><summary>¿Cuánto dura cada bote?</summary><p>La duración depende del uso. <strong>[PENDIENTE: duración estimada por bote]</strong>. Escríbele a Valentina y te lo confirma cuando la información esté disponible.</p></details><details><summary>¿Cuánto tarda el envío?</summary><p><strong>[PENDIENTE: tiempo estimado de entrega]</strong>. Escríbele a Valentina para consultar las opciones de envío y el tiempo estimado para tu destino.</p></details><details><summary>¿Tiene contraindicaciones?</summary><p><strong>[PENDIENTE: contraindicaciones confirmadas]</strong>. Antes de consumirlo, consulta con un profesional de salud si tienes dudas y solicita la información disponible sobre sus ingredientes.</p></details><details><summary>¿Qué ingredientes contiene exactamente?</summary><p>La formulación se describe como elaborada con cacao puro e inspirada en conocimientos ancestrales. <strong>[PENDIENTE: lista completa de ingredientes e información nutricional]</strong>. Solicita la información a Valentina antes de comprar.</p></details></div></div></section>
@@ -32,23 +81,38 @@ const PRECIO_USD = 18;
 const WHATSAPP_NUMERO = '584221482602';
 const PRODUCTO_NOMBRE = 'Choco Calma';
 const VIDEO_WISTIA_ID = 'sg00consrq';
+// Videos de testimonios de retiros (IDs de Wistia, tomados de home.naturalezaabierta.com)
+const TESTIMONIOS_RETIRO = ['3fpda69kkp','k4hj2c9jdb','qcp7t98tbn'];
+// Testimonios escritos de Choco Calma. Agrega aquí los reales y autorizados; mientras esté vacío, esa franja no se muestra.
+// Formato:  { texto:'Lo que la persona dijo, con sus palabras.', nombre:'Nombre' },
+const TESTIMONIOS_CHOCO = [
+];
 const IMAGEN_POTE = 'imagenes/choco-calma-hero.png'; // PNG transparente incluido en este paquete.
 // =======================================
 const params = new URLSearchParams(window.location.search); const ref = (params.get('ref') || '').trim().replace(/[\[\]\r\n]/g,'').slice(0,80);
 if(ref) document.getElementById('refNote').classList.add('show');
-function whatsappURL(){const message = `NUEVO PEDIDO${ref ? ` [REF: ${ref}]` : ''}\n• 1x ${PRODUCTO_NOMBRE} ($${PRECIO_USD.toFixed(2)})\nTotal: $${PRECIO_USD.toFixed(2)}`;return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;}
+function whatsappURL(){
+  const message = ref
+    ? `NUEVO PEDIDO [REF: ${ref}]\n• 1x ${PRODUCTO_NOMBRE} ($${PRECIO_USD.toFixed(2)})\nTotal: $${PRECIO_USD.toFixed(2)}`
+    : `Hola, vengo del anuncio publicitario y quiero saber de ${PRODUCTO_NOMBRE}.`;
+  return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(message)}`;
+}
 document.querySelectorAll('.wa-link').forEach(a=>{a.href=whatsappURL();a.target='_blank';a.rel='noopener noreferrer';});
 // Mensajes breves que se alternan en el mismo espacio para evitar saturar el hero.
 const rotatingMessage=document.getElementById('rotatingMessage');
 const heroMessages=[
- '¿Sientes la mente acelerada incluso cuando termina el día?',
- '¿Te cuesta dormir y despertar con sensación de descanso?',
- '¿La tensión del día te impide desconectar de verdad?',
+ 'Cuando la mente no se apaga, ni siquiera de noche.',
+ 'Tensión en hombros y cuello al terminar el día.',
+ 'Te cuesta dormir aunque el cuerpo esté agotado.',
+ 'Nervios, irritabilidad y pensamientos que no paran.',
  'Regálate un momento para bajar el ritmo.'
 ];
 let messageIndex=0;
+const chips=[...document.querySelectorAll('.painPoints span')];
+function pulseChip(i){chips.forEach((c,k)=>c.classList.toggle('active',k===i%chips.length));}
 if(rotatingMessage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
- setInterval(()=>{rotatingMessage.classList.add('is-changing');setTimeout(()=>{messageIndex=(messageIndex+1)%heroMessages.length;rotatingMessage.textContent=heroMessages[messageIndex];rotatingMessage.classList.remove('is-changing');},450);},3600);
+ pulseChip(0);
+ setInterval(()=>{rotatingMessage.classList.add('is-changing');setTimeout(()=>{messageIndex=(messageIndex+1)%heroMessages.length;rotatingMessage.textContent=heroMessages[messageIndex];pulseChip(messageIndex);rotatingMessage.classList.remove('is-changing');},450);},4200);
 }
 // Cargar Wistia únicamente tras una interacción de la persona.
 document.getElementById('loadVideo').addEventListener('click',()=>{
@@ -65,4 +129,29 @@ if('IntersectionObserver' in window && !reduceMotion){const observer=new Interse
 const product=document.getElementById('heroProduct');let ticking=false;
 function updateParallax(){if(reduceMotion||window.innerWidth<700){product.style.setProperty('--scroll-transform','none');ticking=false;return;}const rect=document.getElementById('heroVisual').getBoundingClientRect();const progress=Math.max(-1,Math.min(1,(window.innerHeight*.55-rect.top)/Math.max(rect.height,1)));product.style.transform=`translate3d(0,${progress*12}px,0) rotate(${progress*3-1}deg)`;ticking=false;}
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateParallax);ticking=true;}},{passive:true});window.addEventListener('resize',updateParallax);updateParallax();
+
+// ===== Tarjetas interactivas =====
+document.querySelectorAll('.situation').forEach(c=>{c.tabIndex=0;c.addEventListener('click',()=>{document.querySelectorAll('.situation').forEach(x=>{if(x!==c)x.classList.remove('active')});c.classList.toggle('active')});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click()}})});
+
+// ===== Testimonios =====
+(function(){
+ const vbox=document.getElementById('tVideos');
+ if(vbox){
+  const mount=box=>{if(box.dataset.ready)return;box.dataset.ready='1';const f=document.createElement('iframe');f.src='https://fast.wistia.net/embed/iframe/'+box.dataset.id+'?videoFoam=true';f.title='Testimonio de retiro';f.allow='autoplay; fullscreen';f.setAttribute('allowfullscreen','');f.setAttribute('loading','lazy');box.replaceChildren(f)};
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);mount(e.target)}}),{rootMargin:'400px'}):null;
+  TESTIMONIOS_RETIRO.forEach(id=>{const a=document.createElement('article');a.className='tCard';const b=document.createElement('div');b.className='tVideo';b.dataset.id=id;const c=document.createElement('div');c.className='tCap';c.textContent='Testimonio de retiro';a.append(b,c);vbox.appendChild(a);if(io)io.observe(b);else mount(b)});
+ }
+ const quotes=TESTIMONIOS_CHOCO.filter(q=>q&&q.texto);
+ const qWrap=document.getElementById('tQuotes');
+ if(qWrap&&quotes.length){
+  qWrap.hidden=false;
+  const track=document.getElementById('tTrack'),dots=document.getElementById('tDots');
+  let cur=0,timer=null;
+  const show=n=>{cur=n;track.querySelectorAll('.tQuote').forEach((e,k)=>e.classList.toggle('on',k===n));dots.querySelectorAll('button').forEach((e,k)=>e.classList.toggle('on',k===n))};
+  const restart=()=>{clearInterval(timer);if(quotes.length>1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show((cur+1)%quotes.length),6500)};
+  quotes.forEach((q,k)=>{const f=document.createElement('figure');f.className='tQuote'+(k===0?' on':'');const p=document.createElement('blockquote');p.textContent=q.texto;const n=document.createElement('figcaption');n.textContent=q.nombre||'';f.append(p,n);track.appendChild(f);const d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Ver testimonio '+(k+1));if(k===0)d.className='on';d.addEventListener('click',()=>{show(k);restart()});dots.appendChild(d)});
+  qWrap.addEventListener('mouseenter',()=>clearInterval(timer));qWrap.addEventListener('mouseleave',restart);qWrap.addEventListener('touchstart',()=>clearInterval(timer),{passive:true});
+  restart();
+ }
+})();
 </script></body></html>

@@ -168,9 +168,9 @@
 @media(min-width:851px){
 .heroGrid{grid-template-columns:1fr}
 .heroCopy{max-width:560px}
-.heroVisual{position:absolute;z-index:0;top:0;bottom:0;right:-8%;width:80%;min-height:0;display:block;margin:0}
+.heroVisual{position:absolute;z-index:0;top:0;bottom:0;right:-3%;width:68%;min-height:0;display:block;margin:0}
 .heroVisual:before{display:none}
-.heroVideo{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:120px;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.3) 12%,#000 38%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.3) 12%,#000 38%)}
+.heroVideo{position:absolute;inset:0;display:flex;align-items:flex-start;padding-top:60px;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.3) 12%,#000 38%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.3) 12%,#000 38%)}
 .heroVideo video{height:auto;aspect-ratio:16/9;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 92%,transparent 100%)}
 }
 @media(max-width:850px){
@@ -180,6 +180,35 @@
 .heroVideo video{object-position:50% 28%}
 .hero{padding-bottom:30px}
 }
+
+/* ===== Reproductor de audio del hero ===== */
+.heroVideo video{pointer-events:none}
+.heroPlayerWrap{position:relative;z-index:3;margin-top:34px}
+.heroPlayer{display:none;align-items:center;gap:18px;max-width:580px;margin:0 auto;padding:14px 22px 14px 14px;border:1px solid #b79b6399;border-radius:999px;background:linear-gradient(135deg,#f7f3ea14,#f7f3ea08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 14px 40px #0004,inset 0 0 0 1px #ffffff08;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease}
+.heroPlayer.ready{display:flex}
+.heroPlayer.show{opacity:1;transform:none}
+.hpBtn{position:relative;flex:none;width:60px;height:60px;border:0;border-radius:50%;background:linear-gradient(145deg,#cfb27a,#b79b63);color:#1f2a22;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px #0005;transition:transform .2s ease}
+.hpBtn:hover{transform:scale(1.05)}
+.hpBtn:focus-visible{outline:2px solid #f6ead1;outline-offset:3px}
+.hpBtn:before{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #dfc58d;animation:hpPulse 2.2s ease-out infinite;pointer-events:none}
+.heroPlayer.is-playing .hpBtn:before,.heroPlayer.was-played .hpBtn:before{animation:none;opacity:0}
+@keyframes hpPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.55);opacity:0}}
+.hpIcon{width:24px;height:24px;fill:currentColor}
+.hpPlay{margin-left:3px}
+.hpPause{display:none}
+.heroPlayer.is-playing .hpPlay{display:none}
+.heroPlayer.is-playing .hpPause{display:block}
+.hpInfo{flex:1;min-width:0}
+.hpTitle{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;line-height:1.25}
+.hpTitle strong{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:#fffdf8}
+.hpTitle span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#d6c69f}
+.hpBar{position:relative;height:5px;margin:10px 0 6px;border-radius:5px;background:#ffffff26;cursor:pointer;touch-action:none}
+.hpBar:before{content:"";position:absolute;left:0;right:0;top:-10px;bottom:-10px}
+.hpBar span{display:block;height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,#b79b63,#e3cb92)}
+.hpBar:focus-visible{outline:2px solid #f6ead1;outline-offset:4px}
+.hpTime{display:flex;justify-content:space-between;font-size:.7rem;color:#c5cbbf;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+@media(min-width:851px){.hero{padding-bottom:50px}}
+@media(max-width:520px){.heroPlayer{gap:14px;padding:12px 16px 12px 12px;border-radius:30px}.hpBtn{width:54px;height:54px}.hpTitle strong{font-size:1rem}.heroPlayerWrap{margin-top:22px}}
 </style><!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -211,7 +240,12 @@ src="https://www.facebook.com/tr?id=1058891023827887&ev=PageView&noscript=1"
 <div class="topnote" id="refNote">Te invitó alguien de la comunidad Naturaleza Abierta 🌿</div>
 <header class="nav"><div class="wrap navinner"><a href="#inicio" class="brand brandLink"><img class="brandLogo" src="imagenes/logo-icono.webp" alt="Naturaleza Abierta" width="104" height="50"><span>Choco Calma<small>Naturaleza Abierta</small></span></a><nav class="navlinks"><a href="#producto">Conócelo</a><a href="#combo">Combo</a><a href="#como-tomar">Cómo se toma</a><a href="#preguntas">Preguntas</a><a class="navref" href="#referidos"><span aria-hidden="true">💰</span><span class="long">Programa de referidos</span><span class="short">Gana dinero</span></a><a class="navcta wa-link" href="#comprar" aria-label="Hablar con Valentina por WhatsApp"><svg class="waIcon" aria-hidden="true"><use href="#wa"/></svg><span class="navLabel">Habla con Valentina</span></a></nav></div></header>
 <main>
-<section class="hero" id="inicio"><div class="wrap heroGrid"><div class="heroCopy"><div class="eyebrow">Un ritual para volver a ti</div><h1 class="heroHeadline">¿Estrés, <em>ansiedad</em> o tensión emocional?</h1><p class="heroPromise" id="rotatingMessage" aria-live="polite">¿Sientes la mente acelerada incluso cuando termina el día?</p><p class="intro">Descubre Choco Calma: una crema de cacao untable para acompañar tus momentos de pausa y bienestar.</p><div class="painPoints" aria-label="Momentos en los que buscas una pausa"><span>ESTRÉS DIARIO</span><span>MENTE ACELERADA</span><span>DIFICULTAD PARA DESCONECTAR</span></div><div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn wa-link" href="#comprar">Quiero mi Choco Calma <span>↗</span></a></div><p class="smallnote">Compra acompañada por Valentina, nuestra asesora digital.</p></div><div class="heroVisual" id="heroVisual"><div class="heroVideo" id="heroVideo"><video id="heroVideoEl" muted loop playsinline preload="auto" poster="imagenes/hero-pc-poster.webp" aria-label="Una cucharilla entra al pote de Choco Calma y levanta una crema de cacao espesa" width="1280" height="720"></video></div></div></div><div class="scrollCue">Descubre el ritual · ↓</div></section>
+<section class="hero" id="inicio"><div class="wrap heroGrid"><div class="heroCopy"><div class="eyebrow">Un ritual para volver a ti</div><h1 class="heroHeadline">¿Estrés, <em>ansiedad</em> o tensión emocional?</h1><p class="heroPromise" id="rotatingMessage" aria-live="polite">¿Sientes la mente acelerada incluso cuando termina el día?</p><p class="intro">Descubre Choco Calma: una crema de cacao untable para acompañar tus momentos de pausa y bienestar.</p><div class="painPoints" aria-label="Momentos en los que buscas una pausa"><span>ESTRÉS DIARIO</span><span>MENTE ACELERADA</span><span>DIFICULTAD PARA DESCONECTAR</span></div><div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn wa-link" href="#comprar">Quiero mi Choco Calma <span>↗</span></a></div><p class="smallnote">Compra acompañada por Valentina, nuestra asesora digital.</p></div><div class="heroVisual" id="heroVisual"><div class="heroVideo" id="heroVideo"><video id="heroVideoEl" muted loop playsinline disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" tabindex="-1" preload="auto" poster="imagenes/hero-pc-poster.webp" aria-label="Una cucharilla entra al pote de Choco Calma y levanta una crema de cacao espesa" width="1280" height="720"></video></div></div></div><div class="wrap heroPlayerWrap"><div class="heroPlayer" id="heroPlayer" aria-label="Mensaje en audio">
+<button class="hpBtn" id="hpBtn" type="button" aria-label="Reproducir el mensaje de José Vegas"><svg class="hpIcon hpPlay" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="hpIcon hpPause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg></button>
+<div class="hpInfo"><div class="hpTitle"><strong>Mensaje de José Vegas</strong><span>Naturaleza Abierta</span></div>
+<div class="hpBar" id="hpBar" role="slider" tabindex="0" aria-label="Avance del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="hpFill"></span></div>
+<div class="hpTime"><span id="hpCur">0:00</span><span id="hpDur">0:00</span></div></div>
+<audio id="hpAudio" preload="metadata" src="imagenes/audio-choco-calma.mp3"></audio></div></div></section>
 <section class="section" id="producto"><div class="wrap introGrid"><div class="editorialPhoto reveal"><img src="imagenes/choco-calma-solo-2.webp" alt="Pote de Choco Calma, crema de cacao untable de 220 gramos" decoding="async"></div><div class="reveal"><div class="eyebrow">Conoce Choco Calma</div><h2>Una crema de cacao. Un pequeño ritual para ti.</h2><p>Choco Calma es el producto insignia de Naturaleza Abierta, elaborado con cacao puro y una formulación inspirada en conocimientos ancestrales, para acompañar momentos de estrés, ansiedad o tensión emocional.</p><div class="checkline"><i>✦</i><div><strong>Crema de cacao untable</strong><br><span class="muted">Se consume con una cucharita. No es polvo, no es té y no se disuelve en agua.</span></div></div><div class="checkline"><i>✦</i><div><strong>Presentación de 220 gramos</strong><br><span class="muted">Un bote para incorporar a tu rutina personal.</span></div></div><div class="checkline"><i>✦</i><div><strong>Inspiración ancestral</strong><br><span class="muted">Una propuesta que pone el cacao puro en el centro de tu momento de pausa.</span></div></div><div class="notice">La lista exacta de ingredientes y la información nutricional se pueden consultar directamente con Valentina antes de comprar.</div></div></div></section>
 <section class="section dark" id="como-tomar"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Tu ritual cotidiano</div><h2>Dos cucharaditas. Dos momentos para ti.</h2><p>La sugerencia de consumo es de dos cucharaditas de postre pequeñas al día, siguiendo estos dos momentos.</p></div><div class="moments"><article class="moment reveal"><div class="number">01</div><h3>Cuando necesites hacer una pausa</h3><p>Una cucharadita en el momento en que sientas tensión: puede ser por la mañana, al mediodía o por la tarde, según cómo te sientas.</p><div class="spoon" aria-hidden="true">🥄</div></article><article class="moment reveal"><div class="number">02</div><h3>Antes de dormir</h3><p>La segunda cucharadita se sugiere antes de acostarte, alrededor de las 8:30 o 9:00 p. m. Después puedes tomar agua.</p><div class="spoon" aria-hidden="true">🌙</div></article></div><p class="smallnote" style="text-align:center;margin-top:24px">Si tienes dudas sobre el consumo o posibles contraindicaciones, consulta con Valentina y con un profesional de salud.</p></div></section>
 <section class="section"><div class="wrap"><div class="sectionHead reveal"><div class="eyebrow">Hecho para la vida real</div><h2>¿Te gustaría regalarte un momento de calma?</h2><p>Choco Calma está pensado para acompañar rutinas exigentes y momentos en los que quieres bajar el ritmo.</p></div><div class="cards"><article class="situation reveal"><div class="icon">☼</div><h3>Estrés del día a día</h3><p>Cuando el ritmo no da tregua y necesitas una pausa.</p></article><article class="situation reveal"><div class="icon">✧</div><h3>Ansiedad y mente acelerada</h3><p>Pensamientos que no paran, incluso cuando el día ya terminó.</p></article><article class="situation reveal"><div class="icon">❋</div><h3>Tensión emocional</h3><p>Cuando cuesta soltar y volver a conectar contigo.</p></article><article class="situation reveal"><div class="icon">☾</div><h3>Dificultad para dormir</h3><p>Para convertir el final del día en un ritual de descanso.</p></article></div></div></section>
@@ -351,6 +385,26 @@ if('IntersectionObserver' in window && !reduceMotion){const observer=new Interse
 function load(){const mobile=mq.matches;const src=mobile?'imagenes/hero-reel.mp4':'imagenes/hero-pc.mp4';if(v.getAttribute('data-src')===src)return;v.setAttribute('data-src',src);v.poster=mobile?'imagenes/hero-reel-poster.webp':'imagenes/hero-pc-poster.webp';v.src=src;v.load();if(!reduceMotion){const p=v.play();if(p&&p.catch)p.catch(()=>{});}}
 load();(mq.addEventListener?mq.addEventListener('change',load):mq.addListener(load));
 document.addEventListener('visibilitychange',()=>{if(reduceMotion)return;if(document.hidden)v.pause();else{const p=v.play();if(p&&p.catch)p.catch(()=>{});}});})();
+
+// Reproductor del mensaje en audio: aparece al cargar y suena solo cuando la persona toca play.
+(function(){const pl=document.getElementById('heroPlayer');const au=document.getElementById('hpAudio');if(!pl||!au)return;
+const btn=document.getElementById('hpBtn'),bar=document.getElementById('hpBar'),fill=document.getElementById('hpFill'),cur=document.getElementById('hpCur'),dur=document.getElementById('hpDur');
+const fmt=t=>{if(!isFinite(t))return'0:00';t=Math.max(0,Math.floor(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');};
+function ready(){if(pl.classList.contains('ready'))return;dur.textContent=fmt(au.duration);pl.classList.add('ready');requestAnimationFrame(()=>requestAnimationFrame(()=>pl.classList.add('show')));}
+au.addEventListener('loadedmetadata',ready);if(au.readyState>=1)ready();
+au.addEventListener('error',()=>{pl.classList.remove('ready','show');});
+function paint(){const d=au.duration||0;const pct=d?au.currentTime/d*100:0;fill.style.width=pct+'%';cur.textContent=fmt(au.currentTime);bar.setAttribute('aria-valuenow',Math.round(pct));}
+au.addEventListener('timeupdate',paint);
+au.addEventListener('play',()=>{pl.classList.add('is-playing','was-played');btn.setAttribute('aria-label','Pausar el mensaje de José Vegas');});
+au.addEventListener('pause',()=>{pl.classList.remove('is-playing');btn.setAttribute('aria-label','Reproducir el mensaje de José Vegas');});
+au.addEventListener('ended',()=>{au.currentTime=0;paint();});
+btn.addEventListener('click',()=>{if(au.paused){const p=au.play();if(p&&p.catch)p.catch(()=>{});}else au.pause();});
+function seek(clientX){const r=bar.getBoundingClientRect();const f=Math.min(1,Math.max(0,(clientX-r.left)/r.width));if(au.duration)au.currentTime=f*au.duration;paint();}
+let drag=false;bar.addEventListener('pointerdown',e=>{drag=true;bar.setPointerCapture(e.pointerId);seek(e.clientX);});
+bar.addEventListener('pointermove',e=>{if(drag)seek(e.clientX);});
+bar.addEventListener('pointerup',()=>{drag=false;});bar.addEventListener('pointercancel',()=>{drag=false;});
+bar.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){au.currentTime=Math.min(au.duration||0,au.currentTime+5);e.preventDefault();}else if(e.key==='ArrowLeft'){au.currentTime=Math.max(0,au.currentTime-5);e.preventDefault();}});
+})();
 // Parallax discreto y eficiente del pote; respeta reduced-motion.
 const product=document.getElementById('heroProduct');let ticking=false;
 function updateParallax(){if(!product){ticking=false;return;}if(reduceMotion||window.innerWidth<700){product.style.setProperty('--scroll-transform','none');ticking=false;return;}const rect=document.getElementById('heroVisual').getBoundingClientRect();const progress=Math.max(-1,Math.min(1,(window.innerHeight*.55-rect.top)/Math.max(rect.height,1)));product.style.transform=`translate3d(0,${progress*12}px,0) rotate(${progress*3-1}deg)`;ticking=false;}

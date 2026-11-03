@@ -267,7 +267,11 @@
 .btn:not(.outline):not(.ghost):not(.dark):hover{box-shadow:inset 0 1px 0 #fff9,inset 0 -2px 5px #6b501540,0 12px 30px #d9bb7870}
 .btn:not(.outline):not(.ghost):not(.dark):after{content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;background:linear-gradient(100deg,transparent,#fffdf8d0,transparent);transform:skewX(-20deg);animation:goldShine 3.4s ease-in-out infinite;pointer-events:none}
 @keyframes goldShine{0%,45%{transform:translateX(0) skewX(-20deg)}100%{transform:translateX(420%) skewX(-20deg)}}
- 
+
+/* Banner de referido: que no tape el menú */
+.topnote{box-sizing:border-box;height:36px;line-height:20px;padding:8px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnote.show + .nav{top:36px}
+@media(max-width:520px){.topnote{font-size:.74rem}}
 </style><!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
